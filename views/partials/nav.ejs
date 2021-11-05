@@ -4,6 +4,15 @@
 </head>
 <body>
   <nav>
+    <a 
+      href="/" <%- title === 'Home' ? 'class="active"' : '' %>
+    >HOME</a>
+    <a 
+      href="/foods" <%- title === 'All Foods' ? 'class="active"' : '' %>
+    >ALL FOODS</a>
+    <a 
+      href="/foods/new" <%- title === 'Add Food' ? 'class="active"' : '' %>
+    >ADD FOOD</a>
     <% if (user) { %>
       <a href="/auth/logout">
         <button type="submit">Logout</button>
