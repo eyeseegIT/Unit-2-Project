@@ -6,10 +6,16 @@ const foodSchema = new Schema({
   name: String,
   category: {
     type: String,
-    enum: ["Fruits/Veggies", "Protein", "Grains"]
+    enum: ["Fibers", "Protein", "Grains"]
   },
-  preparation: String,
-  cookTime: Number,
+  preparation: {
+    type: String,
+    enum: ["Boil", "Steam", "Bake", "None"]
+  },  
+  cookTime: {
+    type: Number,
+    min: 0
+  },  
   // owner: {type: Schema.Types.ObjectId, 'ref': "Profile"}
 })
 

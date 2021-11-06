@@ -1,0 +1,36 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+<!-- EJS if (user) { %>  -->
+  <h1>Add New Food</h1>
+  <form action="/foods/category" method="POST"> <!-- whattt -->
+    <label>Category:
+      <select name="category">
+        <option value="Fibers" required>Fruits & Veggies</option>
+        <option value="Protein">Protein</option>
+        <option value="Grains">Grains</option>
+      </select>
+    </label><br>
+    <label>Name:
+      <input type="text" name="name" autocomplete="off" required>
+    </label><br>
+    <label>Preparation:
+      <select name="preparation">
+        <option value="Boil">Boil</option>
+        <option value="Steam">Steam</option>
+        <option value="Bake">Bake</option>
+        <option value="None">None</option>
+      </select>
+    </label><br>
+    <label>Cook Time:
+      <input type="number" name="cookTime" min=0>Mins
+    </label><br>
+    <button type="submit">Add Food</button>
+  </form>
+
+  
+
+</main>
+
+<%- include('../partials/footer') %>
