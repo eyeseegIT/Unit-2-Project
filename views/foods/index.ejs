@@ -15,34 +15,6 @@
   <img src="/images/auth/google/grains.png" alt="different types of grains" width="200" height="200">
 </a>
 
-<h1>List of Foods</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Preparation</th>
-        <th>Cook Time</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% foods.forEach(function(food) { %>
-        <tr>
-          <td><a href="/foods/<%= food._id %>/edit"><%= food.name %></a>
-          <td><%= food.preparation %></td>
-          <td><%= food.cookTime %></td>
-          <% if (food.owner.equals(user?.profile._id)) { %>
-          <td>
-            <form action="/foods/category/<%= food._id %>?_method=DELETE" method="POST">
-              <button>X</button>
-            </form>
-          </td> 
-          <% } %> 
-        </tr>
-        <% }) %>
-    </tbody>
-  </table>
-
-
 </main>
 
 <%- include('../partials/footer') %>

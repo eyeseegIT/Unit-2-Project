@@ -17,6 +17,7 @@ function index(req, res) {
 function categoryIndex(req, res) {
   Food.find({category: req.params.name})
   .then(foods => {
+    console.log("this is my foods", foods)
     res.render("foods/category", {
       foods,
       title: `${req.params.name}'s Page`
