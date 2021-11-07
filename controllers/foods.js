@@ -80,11 +80,45 @@ function deleteFood(req, res) {
   })
 }
 
+function update(req, res) {
+  Food.findById(req.params.id)
+  .then(food => {
+    // if (food.owner.equals(req.user.profile._id)) {
+      food.update(req.body, {new: true})
+      .then(()=> {
+        res.redirect(`/foods`)
+      })
+    // } else {
+    //   throw new Error ('🚫 Not authorized 🚫')
+    // }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/foods`)
+  })
+}
+
+function edit(req, res) {
+  Food.findById(req.params.id)
+  .then(food => {
+    res.render('foods/edit', {
+      food,
+      title: "Edit Food"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/foods')
+  })
+}
+
 export {
   index,
   categoryIndex,
   newFood as new,
   create,
   show,
-  deleteFood as delete
+  deleteFood as delete,
+  update,
+  edit
 }
