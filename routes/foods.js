@@ -11,22 +11,22 @@ router.get("/", foodsCtrl.index)
 router.get("/category/:name", foodsCtrl.categoryIndex)
 
 // localhost:3000/foods/new - GET
-router.get("/new", foodsCtrl.new)
+router.get("/new", isLoggedIn, foodsCtrl.new)
 
-// localhost:3000/foods/category/:name - GET ??
-router.get("/category", foodsCtrl.show)
+// localhost:3000/foods/category/:id - GET ??
+router.get("/:id", foodsCtrl.show)
 
 // localhost:3000/foods/category - POST  ??
 router.post("/category", foodsCtrl.create)
 
 // localhost:3000/foods/category/:id - DELETE ??
-router.delete("/category/:id", foodsCtrl.delete)
+router.delete("/category/:id", isLoggedIn, foodsCtrl.delete)
 
 // localhost:3000/foods/category/:id - PUT ??
-router.put("/:id", foodsCtrl.update)
+router.put("/:id", isLoggedIn, foodsCtrl.update)
 
 // localhost:3000/foods/:id/edit - GET
-router.get('/:id/edit', foodsCtrl.edit)
+router.get('/:id/edit', isLoggedIn, foodsCtrl.edit)
 
 export {
   router

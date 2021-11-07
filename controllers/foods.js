@@ -35,11 +35,11 @@ function newFood(req, res) {
 }
 
 function create(req, res) {
+  // so that cookTime can default to 0 if left blank
   for (let key in req.body) {
     if (req.body[key] === "") delete req.body[key]
   }
-
-  // req.body.owner = req.user.profile._id
+  req.body.owner = req.user.profile._id
   Food.create(req.body)
   .then(food => {
     res.redirect(`/foods`) 
@@ -51,8 +51,8 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  Food.find(req.params.name)
-  // .populate("owner")
+  Food.findById(req.params.id)
+  .populate("owner")
   .then(food => {
     res.render("foods/category", {
       food,
@@ -68,16 +68,15 @@ function show(req, res) {
 function deleteFood(req, res) {
   Food.findById(req.params.id)
   .then(food => {
-    // if (food.owner.equals(req.user.profile._id)) { 
+    if (food.owner.equals(req.user.profile._id)) { 
       food.delete()
       .then(() => {
         res.redirect('/foods')
       })
-    })
-  //   } else {
-  //     throw new Error ('🚫 Not authorized 🚫')
-  //   }   
-  // })
+    } else {
+      throw new Error ('🚫 Not authorized 🚫')  
+    }
+  })
   .catch(err => {
     console.log(err)
     res.redirect('/foods')
@@ -87,14 +86,14 @@ function deleteFood(req, res) {
 function update(req, res) {
   Food.findById(req.params.id)
   .then(food => {
-    // if (food.owner.equals(req.user.profile._id)) {
+    if (food.owner.equals(req.user.profile._id)) {
       food.update(req.body, {new: true})
       .then(()=> {
         res.redirect(`/foods`)
       })
-    // } else {
-    //   throw new Error ('🚫 Not authorized 🚫')
-    // }
+    } else {
+      throw new Error ('🚫 Not authorized 🚫')
+    }
   })
   .catch(err => {
     console.log(err)

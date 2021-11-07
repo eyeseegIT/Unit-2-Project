@@ -17,7 +17,7 @@ const foodSchema = new Schema({
     min: 0,
     default: 0,
   },  
-  // owner: {type: Schema.Types.ObjectId, 'ref': "Profile"}
+  owner: {type: Schema.Types.ObjectId, 'ref': "Profile"}
 })
 
 const Food = mongoose.model('Food', foodSchema)

@@ -2,21 +2,24 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1>Edit <%= food.name %> </h1>
-  <form action="/foods/<%= food._id %>?_method=PUT" method="POST">
-    <label>Preparation:
-      <select name="preparation"> 
-        <option value="Boil" <%= food.preparation === 'Boil' ? 'selected': '' %>>Boil</option>
-        <option value="Steam" <%= food.preparation === 'Steam' ? 'selected': '' %>>Steam</option>
-        <option value="Bake" <%= food.preparation === 'Bake' ? 'selected': '' %>>Bake</option>
-        <option value="None" <%= food.preparation === 'None' ? 'selected': '' %>>None</option>
-      </select>
-    </label><br>
-    <label>Cook Time:
-      <input type="number" name="cookTime" min=0 value="<%= food.cookTime %>">Mins
-    </label><br>
-    <button type="submit">Edit</button>
-  </form>
+  <h3>Contributed by: <%= food.owner %> </h3> <!-- WHY CAN'T IT DISPLAY NAME?? -->
+  <% if (food.owner.equals(user?.profile._id)) { %>
+    <h1>Edit <%= food.name %> </h1>
+    <form action="/foods/<%= food._id %>?_method=PUT" method="POST">
+      <label>Preparation:
+        <select name="preparation"> 
+          <option value="Boil" <%= food.preparation === 'Boil' ? 'selected': '' %>>Boil</option>
+          <option value="Steam" <%= food.preparation === 'Steam' ? 'selected': '' %>>Steam</option>
+          <option value="Bake" <%= food.preparation === 'Bake' ? 'selected': '' %>>Bake</option>
+          <option value="None" <%= food.preparation === 'None' ? 'selected': '' %>>None</option>
+        </select>
+      </label><br>
+      <label>Cook Time:
+        <input type="number" name="cookTime" min=0 value="<%= food.cookTime %>">Mins
+      </label><br>
+      <button type="submit">Edit</button>
+    </form>
+  <% } %>
 </main>
 
 <%- include('../partials/footer') %>

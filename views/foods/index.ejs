@@ -30,11 +30,13 @@
           <td><a href="/foods/<%= food._id %>/edit"><%= food.name %></a>
           <td><%= food.preparation %></td>
           <td><%= food.cookTime %></td>
+          <% if (food.owner.equals(user?.profile._id)) { %>
           <td>
             <form action="/foods/category/<%= food._id %>?_method=DELETE" method="POST">
               <button>X</button>
             </form>
           </td> 
+          <% } %> 
         </tr>
         <% }) %>
     </tbody>
