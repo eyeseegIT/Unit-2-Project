@@ -17,10 +17,9 @@ function index(req, res) {
 function categoryIndex(req, res) {
   Food.find({category: req.params.name})
   .then(foods => {
-    console.log("this is my foods", foods)
     res.render("foods/category", {
       foods,
-      title: `${req.params.name}'s Page`
+      title: `List of ${req.params.name}`
     })
   })
   .catch(err => {
@@ -43,7 +42,7 @@ function create(req, res) {
   req.body.owner = req.user.profile._id
   Food.create(req.body)
   .then(food => {
-    res.redirect(`/foods`) 
+    res.redirect(`/foods/category/${req.body.category}`) 
   })
   .catch(err => {
     console.log(err)
@@ -72,7 +71,7 @@ function deleteFood(req, res) {
     if (food.owner.equals(req.user.profile._id)) { 
       food.delete()
       .then(() => {
-        res.redirect('/foods')
+        res.redirect(`/foods/category`) // HOW TO REDIRECT/STAY ON CURRENT PAGE?
       })
     } else {
       throw new Error ('🚫 Not authorized 🚫')  
@@ -90,7 +89,7 @@ function update(req, res) {
     if (food.owner.equals(req.user.profile._id)) {
       food.update(req.body, {new: true})
       .then(()=> {
-        res.redirect(`/foods`)
+        res.redirect(`/foods/category`) // HOW TO REDIRECT/STAY ON CURRENT PAGE?
       })
     } else {
       throw new Error ('🚫 Not authorized 🚫')

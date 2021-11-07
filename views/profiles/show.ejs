@@ -1,0 +1,52 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <% if (profile.avatar) { %>
+    <div>
+      <img 
+        class="profile-avatar"
+        src="<%= profile.avatar %>" 
+        alt="<%= profile.name %> avatar"
+      >
+    </div>
+  <% } %>
+  <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
+  <% if (isSelf)  {%> 
+    <h2>Add a Note</h2>
+    <form action="/profiles/<%= profile._id %>/notes" method="POST">
+      <label>
+        Item: 
+        <input type="text" name="item" autocomplete="off">
+      </label>
+      <label>
+        Note: 
+        <input type="text" name="writing" autocomplete="off">
+      </label>
+      <button type="submit">Add Note</button>
+    </form>
+  <% } %>
+
+  <% if (profile.notes.length) { %>
+    <h2>
+      <%= isSelf ? "You have" : `${profile.name} has` %> notes! 
+    </h2>
+      <% profile.notes.forEach(note => { %>
+        <%= note.item %>
+        <%= note.writing %>
+        <% if (isSelf) { %> 
+          <form 
+            action="/profiles/notes/<%= note._id %>?_method=DELETE" method="POST"
+          >
+            <button type="submit">X</button>
+          </form>
+        <% } %> 
+      <% }) %> 
+  <% } else { %>
+    <h2>
+      <%= isSelf ? "You don't" : `${profile.name} doesn't` %> have any notes.
+    </h2> 
+  <% } %> 
+</main>
+
+<%- include('../partials/footer') %>

@@ -13,6 +13,9 @@
     <a 
       href="/foods/new" <%- title === 'Add Food' ? 'class="active"' : '' %>
     >ADD FOOD</a>
+    <a 
+      href="/profiles" <%- title === 'Profiles' ? 'class="active"' : '' %>
+    >PROFILES</a>
     <% if (user) { %>
       <a href="/auth/logout">
         <button type="submit">Logout</button>
