@@ -4,14 +4,30 @@
 <main>
 <h1> <%= title %> </h1>
 
-<h1>Food Details</h1>
-  <section>
-    <div>Name: </div>
-    <div><%= foods.name %></div>
-    <div>Preparation: </div>
-    <div><%= foods.preparation %></div>
-    <div>Cook Time: </div>
-    <div><%= foods.cookTime %></div>
+<h1>List of Foods</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Preparation</th>
+        <th>Cook Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% foods.forEach(function(food) { %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.preparation %></td>
+          <td><%= food.cookTime %></td>
+          <td>
+            <form action="/foods/category/<%= food._id %>?_method=DELETE" method="POST">
+              <button>X</button>
+            </form>
+          </td> 
+        </tr>
+        <% }) %>
+    </tbody>
+  </table>
 
 </main>
 

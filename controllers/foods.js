@@ -36,23 +36,21 @@ function newFood(req, res) {
 
 function create(req, res) {
   // req.body.owner = req.user.profile._id
-  Food.find({category: req.params.name})
   Food.create(req.body)
   .then(food => {
-    res.redirect(`/foods`) // NEED TO CHANGE THIS PAGE
+    res.redirect(`/foods`) 
   })
-//   const food = new Food(req.body)
-//   food.save(function (err) {
-//     if (err) return res.redirect('foods/new')
-//     res.redirect(`/foods`)
-// })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/foods")
+  })
 }
 
 function show(req, res) {
-  Food.findById(req.params.id)
+  Food.find(req.params.name)
   // .populate("owner")
   .then(food => {
-    res.render("foods/category", {
+    res.render("foods/category/:name", {
       food,
       title: "whatever"
     })
@@ -63,10 +61,30 @@ function show(req, res) {
   })
 }
 
+function deleteFood(req, res) {
+  Food.findById(req.params.id)
+  .then(food => {
+    // if (food.owner.equals(req.user.profile._id)) { 
+      food.delete()
+      .then(() => {
+        res.redirect('/foods')
+      })
+    })
+  //   } else {
+  //     throw new Error ('🚫 Not authorized 🚫')
+  //   }   
+  // })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/foods')
+  })
+}
+
 export {
   index,
   categoryIndex,
   newFood as new,
   create,
-  show
+  show,
+  deleteFood as delete
 }

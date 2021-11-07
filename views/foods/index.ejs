@@ -15,7 +15,30 @@
   <img src="/images/auth/google/grains.png" alt="different types of grains" width="200" height="200">
 </a>
 
-
+<h1>List of Foods</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Preparation</th>
+        <th>Cook Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% foods.forEach(function(food) { %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.preparation %></td>
+          <td><%= food.cookTime %></td>
+          <td>
+            <form action="/foods/category/<%= food._id %>?_method=DELETE" method="POST">
+              <button>X</button>
+            </form>
+          </td> 
+        </tr>
+        <% }) %>
+    </tbody>
+  </table>
 
 
 </main>
