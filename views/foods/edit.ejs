@@ -5,17 +5,17 @@
   <h1>Edit <%= food.name %> </h1>
   <form action="/foods/<%= food._id %>?_method=PUT" method="POST">
     <label>Preparation:
-      <select name="preparation" value="<%= food.preparation %>"> <!-- HOW TO MAKE SELECT VALUE SAME AS SELECTED? -->
-        <option value="Boil">Boil</option>
-        <option value="Steam">Steam</option>
-        <option value="Bake">Bake</option>
-        <option value="None">None</option>
+      <select name="preparation"> 
+        <option value="Boil" <%= food.preparation === 'Boil' ? 'selected': '' %>>Boil</option>
+        <option value="Steam" <%= food.preparation === 'Steam' ? 'selected': '' %>>Steam</option>
+        <option value="Bake" <%= food.preparation === 'Bake' ? 'selected': '' %>>Bake</option>
+        <option value="None" <%= food.preparation === 'None' ? 'selected': '' %>>None</option>
       </select>
     </label><br>
     <label>Cook Time:
       <input type="number" name="cookTime" min=0 value="<%= food.cookTime %>">Mins
     </label><br>
-    <button type="submit">Edit Food</button>
+    <button type="submit">Edit</button>
   </form>
 </main>
 

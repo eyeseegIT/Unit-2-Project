@@ -35,6 +35,10 @@ function newFood(req, res) {
 }
 
 function create(req, res) {
+  for (let key in req.body) {
+    if (req.body[key] === "") delete req.body[key]
+  }
+
   // req.body.owner = req.user.profile._id
   Food.create(req.body)
   .then(food => {
@@ -50,9 +54,9 @@ function show(req, res) {
   Food.find(req.params.name)
   // .populate("owner")
   .then(food => {
-    res.render("foods/category/:name", {
+    res.render("foods/category", {
       food,
-      title: "whatever"
+      // title: "whatever"
     })
   })
   .catch(err => {
@@ -103,7 +107,7 @@ function edit(req, res) {
   .then(food => {
     res.render('foods/edit', {
       food,
-      title: "Edit Food"
+      title: `Edit ${food.name}`
     })
   })
   .catch(err => {

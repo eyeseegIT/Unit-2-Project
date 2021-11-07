@@ -14,7 +14,8 @@ const foodSchema = new Schema({
   },  
   cookTime: {
     type: Number,
-    min: 0
+    min: 0,
+    default: 0,
   },  
   // owner: {type: Schema.Types.ObjectId, 'ref': "Profile"}
 })
