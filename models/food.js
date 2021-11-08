@@ -2,6 +2,10 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
+const noteSchema = new Schema({
+  content: String,
+})
+
 const foodSchema = new Schema({
   name: String,
   category: {
@@ -17,7 +21,8 @@ const foodSchema = new Schema({
     min: 0,
     default: 0,
   },  
-  owner: {type: Schema.Types.ObjectId, 'ref': "Profile"}
+  owner: {type: Schema.Types.ObjectId, 'ref': "Profile"},
+  notes: [noteSchema],
 })
 
 const Food = mongoose.model('Food', foodSchema)

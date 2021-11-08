@@ -1,0 +1,20 @@
+<%# EJS if (profile.notes.length) {  %> 
+  <h2>
+    <%= isSelf ? "You have" : `${profile.name} has` %> notes! 
+  </h2>
+    <% profile.notes.forEach(note => { %>
+      <%= note.topic %>
+      <%= note.content %>
+      <% if (isSelf) { %> 
+        <form 
+          action="/profiles/notes/<%= note._id %>?_method=DELETE" method="POST"
+        >
+          <button type="submit">X</button>
+        </form>
+      <% } %> 
+    <% }) %> 
+<% } else { %>
+  <h2>
+    <%= isSelf ? "You don't" : `${profile.name} doesn't` %> have any notes.
+  </h2> 
+<% } %>  %>

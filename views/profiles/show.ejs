@@ -31,17 +31,12 @@
             <td><%= list.name %></td> 
             <td><%= list.category %></td>
             <% if (isSelf) {%> 
-           
-                <!-- (profile.notes.length) ? 'Yes' : `No` %> HOW TO MAKE IT FOR EACH ITEM? with link if "yes"?  -->
-
-                <% if (profile.notes.length) { %>
+                <% if (list.notes.length) { %>
                   <td><a href="google.com">Yes</a></td>
                 <% } else { %>
                   <td>No</td>
                 <% } %> 
               
-
-             
               <td>
                 <form 
                 action="/profiles/lists/<%= list._id %>?_method=DELETE" method="POST"
@@ -58,12 +53,12 @@
 
   <% if (isSelf) {%> 
     <h2>Add a Note</h2>
-    <form action="/profiles/<%= profile._id %>/notes" method="POST">
+    <form action="/foods/add-note" method="POST">
       <label>
         Item:
-        <select name="topic">  
+        <select name="listId">  
           <% profile.lists.forEach(list => { %>
-            <option value="<%= list.name %>"><%= list.name %></option>
+            <option value="<%= list._id %>"><%= list.name %></option>
           <% }) %>
         </select> 
       </label>
@@ -75,26 +70,7 @@
     </form>
   <% } %>
 
-  <% if (profile.notes.length) { %> <!-- && IF USER IS SELF-->
-    <h2>
-      <%= isSelf ? "You have" : `${profile.name} has` %> notes! 
-    </h2>
-      <% profile.notes.forEach(note => { %>
-        <%= note.topic %>
-        <%= note.content %>
-        <% if (isSelf) { %> 
-          <form 
-            action="/profiles/notes/<%= note._id %>?_method=DELETE" method="POST"
-          >
-            <button type="submit">X</button>
-          </form>
-        <% } %> 
-      <% }) %> 
-  <% } else { %>
-    <h2>
-      <%= isSelf ? "You don't" : `${profile.name} doesn't` %> have any notes.
-    </h2> 
-  <% } %> 
+
 </main>
 
 <%- include('../partials/footer') %>

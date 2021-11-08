@@ -116,6 +116,17 @@ function edit(req, res) {
   })
 }
 
+function addNote(req, res) {
+  Food.findById(req.body.listId)
+  .then(food => {
+    food.notes.push(req.body)
+    food.save()
+    .then(() => {
+    res.redirect("/foods")
+    })
+  })
+}
+
 export {
   index,
   categoryIndex,
@@ -125,4 +136,5 @@ export {
   deleteFood as delete,
   update,
   edit,
+  addNote
 }

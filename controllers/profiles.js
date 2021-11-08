@@ -95,6 +95,8 @@ function deleteList(req, res) {
   })
 }
 
+// add note to item
+
 export {
   index,
   show,

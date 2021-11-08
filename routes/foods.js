@@ -22,6 +22,8 @@ router.get('/:id/edit', isLoggedIn, foodsCtrl.edit)
 // localhost:3000/foods/category - POST  
 router.post("/category", foodsCtrl.create)
 
+router.post("/add-note", isLoggedIn, foodsCtrl.addNote)
+
 // localhost:3000/foods/category/:id - DELETE 
 router.delete("/category/:id", isLoggedIn, foodsCtrl.delete)
 
