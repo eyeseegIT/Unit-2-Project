@@ -2,6 +2,7 @@
 <%- include('../partials/nav') %>
 
 <main>
+  <!-- <h1>It's EJS= isSelf ? "you" : profile.name %>!</h1> -->
   <% if (profile.avatar) { %>
     <div>
       <img 
@@ -11,17 +12,37 @@
       >
     </div>
   <% } %>
-  <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
+  
+  <h2><%= profile.name %>'s List</h2>
+  <% if (profile.lists.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% profile.lists.forEach(list => { %> 
+          <tr>
+            <td><%= list %></td> <!--HOW CAN I GET IT TO RENDER TEXT?-->
+            <td><%=  %></td>
+          </tr>
+        <% }) %> 
+      </tbody>
+    </table>
+  <% } %> 
+
   <% if (isSelf)  {%> 
     <h2>Add a Note</h2>
     <form action="/profiles/<%= profile._id %>/notes" method="POST">
       <label>
         Item: 
-        <input type="text" name="item" autocomplete="off">
+        <input type="text" name="topic" autocomplete="off">
       </label>
       <label>
         Note: 
-        <input type="text" name="writing" autocomplete="off">
+        <input type="text" name="content" autocomplete="off">
       </label>
       <button type="submit">Add Note</button>
     </form>
@@ -32,8 +53,8 @@
       <%= isSelf ? "You have" : `${profile.name} has` %> notes! 
     </h2>
       <% profile.notes.forEach(note => { %>
-        <%= note.item %>
-        <%= note.writing %>
+        <%= note.topic %>
+        <%= note.content %>
         <% if (isSelf) { %> 
           <form 
             action="/profiles/notes/<%= note._id %>?_method=DELETE" method="POST"

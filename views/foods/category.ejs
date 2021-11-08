@@ -18,10 +18,19 @@
           <td><a href="/foods/<%= food._id %>/edit"><%= food.name %></a>
           <td><%= food.preparation %></td>
           <td><%= food.cookTime %></td>
+
+          <% if (user) { %> 
+            <td>
+              <form action="/profiles/lists/<%= food._id %>" method="POST"> <!--IS THIS RIGHT?-->
+                <button type="submit">Add to List</button>
+              </form>
+            </td> 
+          <% } %> 
+
           <% if (food.owner.equals(user?.profile._id)) { %>
           <td>
             <form action="/foods/category/<%= food._id %>?_method=DELETE" method="POST">
-              <button>X</button>
+              <button type="submit">X</button>
             </form>
           </td> 
           <% } %> 

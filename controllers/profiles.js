@@ -50,7 +50,6 @@ function createNote(req, res) {
 }
 
 function deleteNote(req, res) {
-  console.log("SANITY CHECK")
   Profile.findById(req.user.profile._id)
   .then(profile => {
     profile.notes.remove({_id: req.params.id})
@@ -65,9 +64,27 @@ function deleteNote(req, res) {
   })
 }
 
+function createList(req, res) {
+  Profile.findById(req.user.profile._id)
+  .then(profile => {
+    profile.lists.push(req.params.id) 
+    profile.lists.push(req.params.name) 
+    profile.lists.push(req.params.category) 
+    profile.save()
+    .then(() => {
+    res.redirect(`/foods/category/${req.params}`) 
+  })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/foods")
+  })
+}
+
 export {
   index,
   show,
   createNote,
-  deleteNote
+  deleteNote,
+  createList
 }

@@ -123,5 +123,5 @@ export {
   show,
   deleteFood as delete,
   update,
-  edit
+  edit,
 }

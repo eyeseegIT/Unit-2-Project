@@ -16,6 +16,9 @@ router.post('/:id/notes', isLoggedIn, profilesCtrl.createNote)
 // localhost:3000/profiles/notes/:id - DELETE
 router.delete('/notes/:id', isLoggedIn, profilesCtrl.deleteNote)
 
+// localhost:3000/profiles/:id/lists - POST
+router.post("/lists/:id", isLoggedIn, profilesCtrl.createList)
+
 export {
   router
 }

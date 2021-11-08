@@ -2,9 +2,9 @@
 <%- include('../partials/nav') %>
 
 <main>
-<!-- EJS if (user) { %>  -->
+<% if (user) { %> 
   <h1>Add New Food</h1>
-  <form action="/foods/category" method="POST"> <!-- whattt -->
+  <form action="/foods/category" method="POST">
     <label>Category:
       <select name="category" required>
         <option value="fibers">Fruits & Veggies</option>
@@ -28,7 +28,7 @@
     </label><br>
     <button type="submit">Add Food</button>
   </form>
-
+<% } %> 
 
 </main>
 
