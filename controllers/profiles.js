@@ -69,8 +69,6 @@ function createList(req, res) {
   Profile.findById(req.user.profile._id)
   .then(profile => {
     profile.lists.push(req.params.id) 
-    profile.lists.push(req.params.name) 
-    profile.lists.push(req.params.category) 
     profile.save()
     .then(() => {
     res.redirect(`/profiles/${req.user.profile._id}`) 
@@ -82,10 +80,26 @@ function createList(req, res) {
   })
 }
 
+function deleteList(req, res) {
+  Profile.findById(req.user.profile._id)
+  .then(profile => {
+    profile.lists.remove({_id: req.params.id})
+    profile.save()
+    .then(()=> {
+      res.redirect(`/profiles/${req.user.profile._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/profiles/${req.user.profile._id}`)
+  })
+}
+
 export {
   index,
   show,
   createNote,
   deleteNote,
-  createList
+  createList,
+  deleteList
 }
