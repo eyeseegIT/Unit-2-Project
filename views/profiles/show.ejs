@@ -19,8 +19,10 @@
         <tr>
           <th>Name</th>
           <th>Category</th>
-          <th>Notes</th>
-          <th>Delete?</th>
+          <% if (isSelf)  {%> 
+            <th>Notes</th>
+            <th>Delete?</th>
+          <% } %> 
         </tr>
       </thead>
       <tbody>
@@ -28,30 +30,33 @@
           <tr>
             <td><%= list.name %></td> 
             <td><%= list.category %></td>
-            <td>Placeholder</td>
-            <td>
-              <form 
-              action="/profiles/lists/<%= list._id %>?_method=DELETE" method="POST"
-              >
-              <button type="submit">X</button>
-              </form>
-            </td>
+            <% if (isSelf) {%> 
+              <td>
+                <%= (profile.notes.length) ? `Yes` : `No` %> <!-- HOW TO MAKE IT FOR EACH ITEM? with link if "yes"? -->
+              </td>
+              <td>
+                <form 
+                action="/profiles/lists/<%= list._id %>?_method=DELETE" method="POST"
+                >
+                <button type="submit">X</button> <!-- HOW TO GET IT TO NOT DELETE IF ITEM IN CATEGORY LIST IS DELETED? -->
+                </form>
+              </td>
+            <% } %> 
           </tr>
         <% }) %> 
       </tbody>
     </table>
   <% } %> 
 
-  <% if (isSelf)  {%> 
+  <% if (isSelf) {%> 
     <h2>Add a Note</h2>
     <form action="/profiles/<%= profile._id %>/notes" method="POST">
       <label>
         Item:
-        <select name="topic">  
+        <select name="topic">  <!-- HOW TO GET IT TO POPULATE NAME OF ONLY ITEMS IN LIST? -->
           <% profile.lists.forEach(list => { %>
-            <option value="<%= list.name %>"></option>
+            <option value="<%= list.name %>"><%= list.name %></option>
           <% }) %>
-          <option value=""></option>
         </select> 
       </label>
       <label>
