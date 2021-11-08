@@ -31,9 +31,17 @@
             <td><%= list.name %></td> 
             <td><%= list.category %></td>
             <% if (isSelf) {%> 
-              <td>
-                <%= (profile.notes.length) ? `Yes` : `No` %> <!-- HOW TO MAKE IT FOR EACH ITEM? with link if "yes"? -->
-              </td>
+           
+                <!-- (profile.notes.length) ? 'Yes' : `No` %> HOW TO MAKE IT FOR EACH ITEM? with link if "yes"?  -->
+
+                <% if (profile.notes.length) { %>
+                  <td><a href="google.com">Yes</a></td>
+                <% } else { %>
+                  <td>No</td>
+                <% } %> 
+              
+
+             
               <td>
                 <form 
                 action="/profiles/lists/<%= list._id %>?_method=DELETE" method="POST"
@@ -53,7 +61,7 @@
     <form action="/profiles/<%= profile._id %>/notes" method="POST">
       <label>
         Item:
-        <select name="topic">  <!-- HOW TO GET IT TO POPULATE NAME OF ONLY ITEMS IN LIST? -->
+        <select name="topic">  
           <% profile.lists.forEach(list => { %>
             <option value="<%= list.name %>"><%= list.name %></option>
           <% }) %>
