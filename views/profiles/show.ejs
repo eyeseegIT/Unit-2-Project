@@ -2,7 +2,6 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <!-- <h1>It's EJS= isSelf ? "you" : profile.name %>!</h1> -->
   <% if (profile.avatar) { %>
     <div>
       <img 
@@ -25,8 +24,8 @@
       <tbody>
         <% profile.lists.forEach(list => { %> 
           <tr>
-            <td><%= list %></td> <!--HOW CAN I GET IT TO RENDER TEXT?-->
-            <td><%=  %></td>
+            <td><%= list.name %></td> 
+            <td><%= list.category %></td>
           </tr>
         <% }) %> 
       </tbody>
@@ -48,7 +47,7 @@
     </form>
   <% } %>
 
-  <% if (profile.notes.length) { %>
+  <% if (profile.notes.length) { %> <!-- && IF USER IS SELF-->
     <h2>
       <%= isSelf ? "You have" : `${profile.name} has` %> notes! 
     </h2>

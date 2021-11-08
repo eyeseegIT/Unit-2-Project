@@ -16,6 +16,7 @@ function index(req, res) {
 
 function show(req, res) {
   Profile.findById(req.params.id)
+  .populate("lists")
   .then((profile) => {
     Profile.findById(req.user.profile._id)
     .then(self => {
@@ -72,7 +73,7 @@ function createList(req, res) {
     profile.lists.push(req.params.category) 
     profile.save()
     .then(() => {
-    res.redirect(`/foods/category/${req.params}`) 
+    res.redirect(`/profiles/${req.user.profile._id}`) 
   })
   })
   .catch(err => {

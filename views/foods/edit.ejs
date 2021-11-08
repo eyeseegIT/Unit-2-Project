@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h3>Contributed by: <%= food.owner %> </h3> <!-- WHY CAN'T IT DISPLAY NAME?? -->
+  <h3>Contributed by: <%= food.owner.name %> </h3> 
   <% if (food.owner.equals(user?.profile._id)) { %>
     <h1>Edit <%= food.name %> </h1>
     <form action="/foods/<%= food._id %>?_method=PUT" method="POST">

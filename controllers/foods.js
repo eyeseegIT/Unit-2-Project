@@ -71,7 +71,7 @@ function deleteFood(req, res) {
     if (food.owner.equals(req.user.profile._id)) { 
       food.delete()
       .then(() => {
-        res.redirect(`/foods/category`) // HOW TO REDIRECT/STAY ON CURRENT PAGE?
+        res.redirect(`/foods/category/${food.category}`)
       })
     } else {
       throw new Error ('🚫 Not authorized 🚫')  
@@ -89,7 +89,7 @@ function update(req, res) {
     if (food.owner.equals(req.user.profile._id)) {
       food.update(req.body, {new: true})
       .then(()=> {
-        res.redirect(`/foods/category`) // HOW TO REDIRECT/STAY ON CURRENT PAGE?
+        res.redirect(`/foods/category/${food.category}`)
       })
     } else {
       throw new Error ('🚫 Not authorized 🚫')
@@ -103,6 +103,7 @@ function update(req, res) {
 
 function edit(req, res) {
   Food.findById(req.params.id)
+  .populate("owner")
   .then(food => {
     res.render('foods/edit', {
       food,

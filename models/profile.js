@@ -4,15 +4,14 @@ const Schema = mongoose.Schema
 
 const noteSchema = new Schema({
   topic: String,
-  content: {
-    type: String,
-  }
+  content: String,
+  foodItem: [{type: Schema.Types.ObjectId, ref: "Food"}]
 })
 
 const profileSchema = new mongoose.Schema({
   name: String,
   avatar: String,
-  lists: [{type: Schema.Types.ObjectId, ref: "Food"}], // FOODS OR FOOD??
+  lists: [{type: Schema.Types.ObjectId, ref: "Food"}], 
   notes: [noteSchema],
 }, {
   timestamps: true
