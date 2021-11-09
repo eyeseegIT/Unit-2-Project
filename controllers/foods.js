@@ -132,7 +132,7 @@ function showNote(req, res) {
   .then(food => {
     res.render(`profiles/show-note`, {
       food,
-      title: "hello"
+      title: "Notes"
     })
   })
 }

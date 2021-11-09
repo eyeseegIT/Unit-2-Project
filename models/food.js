@@ -10,7 +10,7 @@ const foodSchema = new Schema({
   name: String,
   category: {
     type: String,
-    enum: ["Fruits & Veggies", "Protein", "Grains"]
+    enum: ["Fruits & Veggies", "Proteins", "Grains"]
   },
   preparation: {
     type: String,

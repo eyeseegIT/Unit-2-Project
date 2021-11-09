@@ -3,12 +3,12 @@
 
 <main>
 <% if (user) { %> 
-  <h1>Add New Food</h1>
+  <h1>Contribute New Food</h1>
   <form action="/foods/category" method="POST">
     <label>Category:
       <select name="category" required>
         <option value="Fruits & Veggies">Fruits & Veggies</option>
-        <option value="Protein">Protein</option>
+        <option value="Proteins">Proteins</option>
         <option value="Grains">Grains</option>
       </select>
     </label><br>
@@ -26,7 +26,7 @@
     <label>Cook Time:
       <input type="number" name="cookTime" min=0>Mins
     </label><br>
-    <button type="submit">Add Food</button>
+    <button type="submit">Contribute</button>
   </form>
 <% } %> 
 
