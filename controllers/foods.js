@@ -128,11 +128,13 @@ function addNote(req, res) {
 }
 
 function showNote(req, res) {
-  console.log("SANITY CHECK")
-  // Food.findById(req.params.id)
-  // .then(food => {
-  //   res.render(`/profiles/show-note`)
-  // })
+  Food.findById(req.params.id)
+  .then(food => {
+    res.render(`profiles/show-note`, {
+      food,
+      title: "hello"
+    })
+  })
 }
 
 export {

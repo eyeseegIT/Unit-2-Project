@@ -97,3 +97,13 @@ nav > a {
 .profile-avatar {
   margin-top: 50px;
 }
+
+table, th, tr, td {
+  border: 2px solid red;
+  width: 70%;
+  border-collapse: collapse;
+}
+
+#all-foods th {
+  background-color: #00B7FF;
+}

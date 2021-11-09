@@ -31,7 +31,9 @@ router.delete("/category/:id", isLoggedIn, foodsCtrl.delete)
 // localhost:3000/foods/category/:id - PUT 
 router.put("/:id", isLoggedIn, foodsCtrl.update)
 
-router.get("/list/:listId/notes", isLoggedIn, foodsCtrl.showNote)
+// router.get("/list/:listId/notes", isLoggedIn, foodsCtrl.showNote)
+
+router.get("/notes/:id", isLoggedIn, foodsCtrl.showNote)
 
 export {
   router

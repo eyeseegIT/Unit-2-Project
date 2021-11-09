@@ -1,19 +1,30 @@
 <%- include('../partials/html-head') %>
+
+<link rel="stylesheet" href="/stylesheets/foods/index.css">
+
 <%- include('../partials/nav') %>
 
 <main>
 
-<a href="/foods/category/Fruits & Veggies">
-  <img src="/images/auth/google/fibers.png" alt="different types of fruits & veggies" width="200" height="200">
-</a>
+<h1>Choose a Category</h1>
 
-<a href="/foods/category/Protein">
-  <img src="/images/auth/google/protein.png" alt="different types of protein" width="200" height="200">
-</a>
-
-<a href="/foods/category/Grains">
-  <img src="/images/auth/google/grains.png" alt="different types of grains" width="200" height="200">
-</a>
+<div class="pics">
+  <div id="fibers-pic">
+    <a href="/foods/category/Fruits & Veggies">
+    <img src="/images/auth/google/fibers.png" alt="different types of fruits & veggies" width="200" height="200">
+    </a>
+  </div>
+  <div id="protein-pic">
+    <a href="/foods/category/Protein">
+    <img src="/images/auth/google/protein.png" alt="different types of protein" width="200" height="200">
+    </a>
+  </div>
+  <div id="grains-pic">
+    <a href="/foods/category/Grains">
+    <img src="/images/auth/google/grains.png" alt="different types of grains" width="200" height="200">
+    </a>
+  </div>
+</div>
 
 </main>
 

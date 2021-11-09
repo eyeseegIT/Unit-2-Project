@@ -1,4 +1,7 @@
 <%- include('../partials/html-head') %>
+
+<link rel="stylesheet" href="/stylesheets/profiles/show.css">
+
 <%- include('../partials/nav') %>
 
 <main>
@@ -33,7 +36,9 @@
               <% if (isSelf) {%> 
                 <% if (list.notes.length) { %>
                   <td>
-                    <!-- <a href="/foods/<%# food._id %>/notes/<%# note._id %>">Yes</a> -->
+                    <% list.notes.forEach(note => { %>
+                    <a href="/foods/notes/<%= note._id %>">Yes</a> 
+                    <% }) %> 
                   </td>
                 <% } else { %>
                   <td>No</td> 

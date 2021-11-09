@@ -4,12 +4,14 @@
 <main>
 <h1> <%= title %> </h1>
 
-  <table>
+  <table id="all-foods">
     <thead>
       <tr>
         <th>Name</th>
         <th>Preparation</th>
         <th>Cook Time</th>
+        <th>Add to My List</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -22,7 +24,7 @@
           <% if (user) { %> 
             <td>
               <form action="/profiles/lists/<%= food._id %>" method="POST"> 
-                <button type="submit">Add to List</button>
+                <button type="submit">Add</button>
               </form>
             </td> 
           <% } %> 
