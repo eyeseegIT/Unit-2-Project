@@ -33,7 +33,9 @@ router.put("/:id", isLoggedIn, foodsCtrl.update)
 
 // router.get("/list/:listId/notes", isLoggedIn, foodsCtrl.showNote)
 
-router.get("/notes/:id", isLoggedIn, foodsCtrl.showNote)
+// router.get("/notes/:id", isLoggedIn, foodsCtrl.showNote)
+
+router.get("/:foodId/notes/:noteId", isLoggedIn, foodsCtrl.showNote)
 
 export {
   router

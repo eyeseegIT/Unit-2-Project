@@ -128,10 +128,11 @@ function addNote(req, res) {
 }
 
 function showNote(req, res) {
-  Food.findById(req.params.id)
-  .then(food => {
+  Food.findById(req.params.foodId)
+  .then(food => { 
+    const note = food.notes.id(req.params.noteId)
     res.render(`profiles/show-note`, {
-      food,
+      note,
       title: "Notes"
     })
   })

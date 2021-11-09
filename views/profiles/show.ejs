@@ -37,7 +37,7 @@
                 <% if (list.notes.length) { %>
                   <td>
                     <% list.notes.forEach(note => { %>
-                    <a href="/foods/notes/<%= note._id %>">Yes</a> 
+                    <a href="/foods/<%= list._id %>/notes/<%= note._id %>">Yes</a> 
                     <% }) %> 
                   </td>
                 <% } else { %>
@@ -73,9 +73,9 @@
       <button type="submit">Add Note</button>
     </form>
   <% } %>
+  <% } else { %> 
+    <h2><%= profile.name %> has no lists :(</h2>
   <% } %> 
-
- 
 
 
 </main>
