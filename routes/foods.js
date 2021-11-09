@@ -22,6 +22,7 @@ router.get('/:id/edit', isLoggedIn, foodsCtrl.edit)
 // localhost:3000/foods/category - POST  
 router.post("/category", foodsCtrl.create)
 
+// localhost:3000/foods/add-note - POST  
 router.post("/add-note", isLoggedIn, foodsCtrl.addNote)
 
 // localhost:3000/foods/category/:id - DELETE 
@@ -29,6 +30,8 @@ router.delete("/category/:id", isLoggedIn, foodsCtrl.delete)
 
 // localhost:3000/foods/category/:id - PUT 
 router.put("/:id", isLoggedIn, foodsCtrl.update)
+
+router.get("/list/:listId/notes", isLoggedIn, foodsCtrl.showNote)
 
 export {
   router

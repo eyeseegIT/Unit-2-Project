@@ -1,3 +1,4 @@
+import { Food } from '../models/food.js'
 import { Profile } from '../models/profile.js'
 
 function index(req, res) {
@@ -95,13 +96,11 @@ function deleteList(req, res) {
   })
 }
 
-// add note to item
-
 export {
   index,
   show,
   createNote,
   deleteNote,
   createList,
-  deleteList
+  deleteList,
 }

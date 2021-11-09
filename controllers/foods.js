@@ -122,9 +122,17 @@ function addNote(req, res) {
     food.notes.push(req.body)
     food.save()
     .then(() => {
-    res.redirect("/foods")
+    res.redirect(`/profiles/${req.user.profile._id}`)
     })
   })
+}
+
+function showNote(req, res) {
+  console.log("SANITY CHECK")
+  // Food.findById(req.params.id)
+  // .then(food => {
+  //   res.render(`/profiles/show-note`)
+  // })
 }
 
 export {
@@ -136,5 +144,6 @@ export {
   deleteFood as delete,
   update,
   edit,
-  addNote
+  addNote,
+  showNote
 }

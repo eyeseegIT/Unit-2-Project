@@ -26,17 +26,18 @@
         </tr>
       </thead>
       <tbody>
-        <% profile.lists.forEach(list => { %> 
+        <% profile.lists.forEach(list => { %>  
           <tr>
             <td><%= list.name %></td> 
             <td><%= list.category %></td>
-            <% if (isSelf) {%> 
+              <% if (isSelf) {%> 
                 <% if (list.notes.length) { %>
-                  <td><a href="google.com">Yes</a></td>
+                  <td>
+                    <!-- <a href="/foods/<%# food._id %>/notes/<%# note._id %>">Yes</a> -->
+                  </td>
                 <% } else { %>
-                  <td>No</td>
-                <% } %> 
-              
+                  <td>No</td> 
+                <% } %>  
               <td>
                 <form 
                 action="/profiles/lists/<%= list._id %>?_method=DELETE" method="POST"

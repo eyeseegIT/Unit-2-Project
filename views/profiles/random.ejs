@@ -1,20 +1,31 @@
-<%# EJS if (profile.notes.length) {  %> 
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+
+<!-- EJS if (profile.notes.length) { %> 
   <h2>
-    <%= isSelf ? "You have" : `${profile.name} has` %> notes! 
+    EJS= isSelf ? "You have" : `${profile.name} has` %> notes! 
   </h2>
-    <% profile.notes.forEach(note => { %>
-      <%= note.topic %>
-      <%= note.content %>
-      <% if (isSelf) { %> 
+    EJS profile.notes.forEach(note => { %>
+      EJS= note.topic %>
+      EJS= note.content %>
+      EJS if (isSelf) { %> 
         <form 
-          action="/profiles/notes/<%= note._id %>?_method=DELETE" method="POST"
+          action="/profiles/notes/EJS= note._id %>?_method=DELETE" method="POST"
         >
           <button type="submit">X</button>
         </form>
-      <% } %> 
-    <% }) %> 
-<% } else { %>
+      EJS } %> 
+    EJS }) %> 
+EJS } else { %>
   <h2>
-    <%= isSelf ? "You don't" : `${profile.name} doesn't` %> have any notes.
+    EJS= isSelf ? "You don't" : `${profile.name} doesn't` %> have any notes.
   </h2> 
-<% } %>  %>
+EJS } %>  -->
+
+<h1>random</h1>
+
+</main>
+
+<%- include('../partials/footer') %>
