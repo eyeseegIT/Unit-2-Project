@@ -4,7 +4,7 @@
 <main>
 <h1> <%= title %> </h1>
 
-  <table id="all-foods">
+  <table id="all-foods" class="table">
     <thead>
       <tr>
         <th>Name</th>
@@ -27,6 +27,10 @@
                 <button type="submit">Add</button>
               </form>
             </td> 
+          <% } else { %> 
+            <td>
+              N/A
+            </td>
           <% } %> 
 
           <% if (food.owner.equals(user?.profile._id)) { %>
@@ -45,6 +49,8 @@
     </tbody>
   </table>
 
+
 </main>
+
 
 <%- include('../partials/footer') %>

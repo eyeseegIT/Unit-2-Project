@@ -148,5 +148,5 @@ export {
   update,
   edit,
   addNote,
-  showNote
+  showNote,
 }
