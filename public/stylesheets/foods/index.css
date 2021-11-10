@@ -1,4 +1,4 @@
-#fibers-pic {
+/* #fibers-pic {
   display: inline-flex;
   padding: 100px 50px 0px 50px;
 
@@ -12,5 +12,38 @@
 #grains-pic {
   display: inline-flex;
   padding: 100px 50px 0px 50px;
+} */
+
+.image {
+  display: inline-flex;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  float: left;
+  margin: 100px 30px 0px 30px;
 }
 
+.image div {
+  position: absolute;
+  top: 90%;
+  bottom: 90%;
+  background: pink;
+  color: black;
+  margin-bottom: 5px;
+  font-family: sans-serif;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+.image:hover {
+  cursor: pointer;
+}
+
+.image:hover div {
+  width: 200px;
+  padding: 10px 0px;
+  visibility: visible;
+  opacity: 0.7; 
+  text-align: center;
+}
