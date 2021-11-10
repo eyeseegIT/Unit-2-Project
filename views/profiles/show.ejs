@@ -24,7 +24,7 @@
           <th>Category</th>
           <% if (isSelf)  {%> 
             <th>Notes</th>
-            <th>Delete?</th>
+            <th>Delete</th>
           <% } %> 
         </tr>
       </thead>
@@ -37,17 +37,17 @@
                 <% if (list.notes.length) { %>
                   <td>
                     <% list.notes.forEach(note => { %>
-                    <a href="/foods/<%= list._id %>/notes/<%= note._id %>">Yes</a> 
+                    <a href="/foods/<%= list._id %>/notes/<%= note._id %>">📝</a> 
                     <% }) %> 
                   </td>
                 <% } else { %>
                   <td>No</td> 
                 <% } %>  
-              <td>
-                <form 
-                action="/profiles/lists/<%= list._id %>?_method=DELETE" method="POST"
-                >
-                <button type="submit">X</button> <!-- HOW TO GET IT TO NOT DELETE IF ITEM IN CATEGORY LIST IS DELETED? -->
+                <td>  
+                  <form 
+                  action="/profiles/lists/<%= list._id %>?_method=DELETE" method="POST"
+                  >
+                  <button type="submit">X</button> <!-- HOW TO GET IT TO NOT DELETE IF ITEM IN CATEGORY LIST IS DELETED? -->
                 </form>
               </td>
             <% } %> 

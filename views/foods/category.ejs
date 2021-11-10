@@ -30,11 +30,15 @@
           <% } %> 
 
           <% if (food.owner.equals(user?.profile._id)) { %>
-          <td>
-            <form action="/foods/category/<%= food._id %>?_method=DELETE" method="POST">
-              <button type="submit">X</button>
-            </form>
+            <td>
+              <form action="/foods/category/<%= food._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+              </form>
           </td> 
+          <% } else { %> 
+            <td>
+              N/A
+            </td>
           <% } %> 
         </tr>
         <% }) %>
