@@ -15,7 +15,7 @@
     </div>
   <% } %>
   
-  <h2><%= profile.name %>'s List</h2>
+  <h1><%= profile.name %>'s List</h1>
   <% if (profile.lists.length) { %>
     <table>
       <thead>
@@ -41,7 +41,7 @@
                     <% }) %> 
                   </td>
                 <% } else { %>
-                  <td>No</td> 
+                  <td>None</td> 
                 <% } %>  
                 <td>  
                   <form 
@@ -56,7 +56,7 @@
       </tbody>
     </table>
   <% if (isSelf) {%> 
-    <h2>Add a Note</h2>
+    <h1>Add a Note</h1>
     <form action="/foods/add-note" method="POST">
       <label>
         Item:

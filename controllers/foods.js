@@ -132,6 +132,7 @@ function showNote(req, res) {
   .then(food => { 
     const note = food.notes.id(req.params.noteId)
     res.render(`profiles/show-note`, {
+      food, 
       note,
       title: "Notes"
     })

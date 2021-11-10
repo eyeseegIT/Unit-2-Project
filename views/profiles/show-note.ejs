@@ -3,10 +3,12 @@
 
 <main>
 
-
-<h1>Notes</h1>
-
-<%= note.content %> 
+<h1>Notes for <%= food.name %> </h1>
+<ul>
+  <% food.notes.forEach(note => {  %> 
+    <li><%= note.content %></li>
+  <% }) %> 
+</ul>
 
 </main>
 

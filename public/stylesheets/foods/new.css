@@ -1,0 +1,15 @@
+.add-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add {
+  flex: 1;
+  margin: 10px;
+}
+
+body, label, select {
+  font-size: 1.5rem;
+  
+}

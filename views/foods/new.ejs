@@ -1,9 +1,15 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/foods/new.css">
 <%- include('../partials/nav') %>
 
 <main>
 <% if (user) { %> 
   <h1>Contribute New Food</h1>
+  <div class="add-page">
+  <div id="babyfood-pic" class="add">
+    <img src="/images/auth/google/babyfood.jpeg" width="300px" height="300px">
+  </div>
+  <div id="new-form" class="add">
   <form action="/foods/category" method="POST">
     <label>Category:
       <select name="category" required>
@@ -24,10 +30,12 @@
       </select>
     </label><br>
     <label>Cook Time:
-      <input type="number" name="cookTime" min=0>Mins
+      <input type="number" name="cookTime" min=0 placeholder="Minutes">
     </label><br>
     <button type="submit">Contribute</button>
   </form>
+  </div>
+  </div>
 <% } %> 
 
 </main>
