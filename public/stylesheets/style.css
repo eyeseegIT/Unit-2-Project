@@ -55,10 +55,6 @@ h3 {
   font-size: 2.4rem;
 }
 
-/* ul {
-  list-style-type: none;
-} */
-
 p, label, li, button, input, select {
   font-size: 1.8rem;
   font-family: 'Architects Daughter', cursive;
@@ -74,11 +70,12 @@ section {
 }
 
 a {
-  color: #00B7FF;
+  color: #2591F6;
 }
 
 a:hover {
   background-color: pink;
+  border-radius: 10px;
 }
 
 pre {
