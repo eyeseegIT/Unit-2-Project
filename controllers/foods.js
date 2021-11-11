@@ -19,7 +19,7 @@ function categoryIndex(req, res) {
   .then(foods => {
     res.render("foods/category", {
       foods,
-      title: `List of ${req.params.name}`
+      title: `${req.params.name}`
     })
   })
   .catch(err => {
@@ -56,7 +56,6 @@ function show(req, res) {
   .then(food => {
     res.render("foods/category", {
       food,
-      // title: "whatever"
     })
   })
   .catch(err => {

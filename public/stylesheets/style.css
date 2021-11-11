@@ -59,9 +59,10 @@ h3 {
   list-style-type: none;
 } */
 
-p, label, li, button, input {
+p, label, li, button, input, select {
   font-size: 1.8rem;
   font-family: 'Architects Daughter', cursive;
+  border-radius: 10px;
 }
 
 label {
@@ -108,10 +109,15 @@ nav > a {
 }
 
 table, th, tr, td {
-  border: 2px solid red;
+  border: 2px solid white;
   width: 70%;
   border-collapse: collapse;
   text-align: center;
+  font-size: 1.5rem;
+}
+
+table {
+  table-layout: fixed;
 }
 
 th {
@@ -122,4 +128,13 @@ th {
 
 select, option {
   font-family: 'Architects Daughter', cursive;
+}
+
+img {
+  border-radius: 20px;
+}
+
+#intro {
+  border: thick dotted white;
+  text-align: center;
 }
