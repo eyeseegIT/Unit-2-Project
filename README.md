@@ -1,8 +1,8 @@
 # Project Title: Unit 2 Project
-An app to help parents spend less time thinking about a well-balanced diet for their little new eater. Appropriate for infants 6+ months. Great for baby-led weaning. If user logs in, they can contribute their idea for other parents. 
+An app to help parents spend less time thinking about a well-balanced diet for their little new eater. Appropriate for infants 6+ months. Great for baby-led weaning. When a user logs in, they can contribute their idea for other parents, edit their contribution, add and delete items to a personal list, and write notes to self about each item. 
 
 # Links
-Use the app <a href="https://baby-food-project.herokuapp.com/">here</a>!
+Check out the app <a href="https://baby-food-project.herokuapp.com/">here</a>!
 <br>
 See the planning it took to make the app <a href="https://trello.com/b/3jdjP1Ic/unit-2-project">here</a>.
 
@@ -15,9 +15,9 @@ See the planning it took to make the app <a href="https://trello.com/b/3jdjP1Ic/
   <li>HTML</li>
   <li>CSS</li>
   <li>Javascript</li>
+  <li>Node.js</li>
   <li>Express</li>
-  <li>Mongoose</li>
-  <li>NodeJS</li>
+  <li>MongoDB</li>
 </ul>
 
 # Credits
