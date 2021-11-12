@@ -7,8 +7,8 @@ Check out the app <a href="https://foodie-baby.herokuapp.com/">here</a>!
 See the planning it took to make the app <a href="https://trello.com/b/3jdjP1Ic/unit-2-project">here</a>.
 
 # Screenshots
-<img src="../../projects/Unit-2-Project/public/images/auth/google/screenshot1.png">
-<img src="../../projects/Unit-2-Project/public/images/auth/google/screenshot2.png">
+<img src="./public/images/auth/google/screenshot1.png">
+<img src="./public/images/auth/google/screenshot2.png">
 
 # Technologies Used
 <ul>
