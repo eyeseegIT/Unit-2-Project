@@ -5,39 +5,38 @@
 <main>
 <% if (user) { %> 
   <h1>Contribute New Food</h1>
-  <div class="add-page">
-  <div id="babyfood-pic" class="add">
-    <img src="/images/auth/google/babyfood.jpeg" width="300px" height="300px">
+    <div class="add-page">
+      <div id="babyfood-pic" class="add">
+        <img src="/images/auth/google/babyfood.jpeg" width="300px" height="300px">
+      </div>
+    <div id="new-form" class="add">
+      <form action="/foods/category" method="POST">
+        <label>Category:
+          <select name="category" required>
+            <option value="Fruits & Veggies">Fruits & Veggies</option>
+            <option value="Proteins">Proteins</option>
+            <option value="Grains">Grains</option>
+          </select>
+        </label><br>
+        <label>Name:
+          <input type="text" name="name" autocomplete="off" required>
+        </label><br>
+        <label>Preparation:
+          <select name="preparation">
+            <option value="Boil">Boil</option>
+            <option value="Steam">Steam</option>
+            <option value="Bake">Bake</option>
+            <option value="None">None</option>
+          </select>
+        </label><br>
+        <label>Cook Time:
+          <input type="number" name="cookTime" min=0 placeholder="Minutes">
+        </label><br>
+        <button type="submit">Contribute</button>
+      </form>
+    </div>
   </div>
-  <div id="new-form" class="add">
-  <form action="/foods/category" method="POST">
-    <label>Category:
-      <select name="category" required>
-        <option value="Fruits & Veggies">Fruits & Veggies</option>
-        <option value="Proteins">Proteins</option>
-        <option value="Grains">Grains</option>
-      </select>
-    </label><br>
-    <label>Name:
-      <input type="text" name="name" autocomplete="off" required>
-    </label><br>
-    <label>Preparation:
-      <select name="preparation">
-        <option value="Boil">Boil</option>
-        <option value="Steam">Steam</option>
-        <option value="Bake">Bake</option>
-        <option value="None">None</option>
-      </select>
-    </label><br>
-    <label>Cook Time:
-      <input type="number" name="cookTime" min=0 placeholder="Minutes">
-    </label><br>
-    <button type="submit">Contribute</button>
-  </form>
-  </div>
-  </div>
-<% } %> 
-
+<% } %>
 </main>
 
 <%- include('../partials/footer') %>

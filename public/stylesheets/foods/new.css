@@ -3,14 +3,10 @@
   align-items: center;
   justify-content: center;
   padding: 30px 30px 0px 30px;
+  font-size: 1.5rem;
 }
 
 .add {
   flex: 1;
   margin: 10px;
-}
-
-body, label, select {
-  font-size: 1.5rem;
-  
 }
