@@ -5,20 +5,18 @@
 <main>
   <h1>All Profiles</h1>
   <div class="container">
-    
     <% profiles.forEach(profile => { %>
       <div class="profile-pic">
         <a href="/profiles/<%= profile._id %>">
         <% if (profile.avatar) { %>
-          <img src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar" width="150px" height="150px">
+          <img src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar" width="150px" height="150px" class="avatar">
         <% } else { %>
-          <img src="/images/icons/user.png" alt="A placeholder avatar" width="150px" height="150px" class="profile-pic">
+          <img src="/images/icons/user.png" alt="A placeholder avatar" width="150px" height="150px" class="avatar">
         <% } %>
         <div><%= profile.name %></div>
         </a>
       </div>
     <% }) %>
-    
   </div>
 </main>
 

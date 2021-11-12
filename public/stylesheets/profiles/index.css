@@ -29,3 +29,7 @@
   height: 200px;
   padding: 30px;
 }
+
+.avatar {
+  border: 4px double white;
+}
